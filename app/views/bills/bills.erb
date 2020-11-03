@@ -1,0 +1,18 @@
+<h1>Bills</h1>
+<table>
+	<tr>
+		<th>Company</th>
+		<th>Amount Due</th>
+		<th>Due Date</th>
+		<th>Paid?</th>
+	</tr>
+	<tr>
+		<% @bills.each do |b| %>
+		<td><%= b.company_name %></td>
+		<td><%= b.amount %></td>
+		<td><%= b.due_date %></td>
+		<td><%= b.paid %></td>
+		<% end %>
+	</tr>
+
+</table>
