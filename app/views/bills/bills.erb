@@ -1,6 +1,8 @@
-<h1>Bills</h1>
 <% if logged_in? %>
-<a href="/bills/new">Add bill</a>
+
+	<h1>Bills</h1>
+
+	<a href="/bills/new">Add bill</a>
 	<table>
 		<tr>
 			<th>Company</th>
@@ -18,6 +20,7 @@
 			<% end %>
 		</tr>
 	</table>
+
 <% else %>
-<p>Please <a href="/login">Login</a> to view your bills.</p>
+	<p>Please <a href="/login">Login</a> to view your bills.</p>
 <% end %>
