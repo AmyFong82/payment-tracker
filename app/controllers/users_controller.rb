@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 			redirect '/login'
 			"flash message"
 		end
-
 	end
+
 	
 end

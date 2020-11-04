@@ -9,6 +9,12 @@ class BillsController < ApplicationController
 		end
 	end
 
+	get '/bills/:id/edit' do
+		if se
+		@bill = Bill.find(params[:id])
+		erb :"/bills/edit"
+	end
+
 end
 
 #bill = Bill.new(company_name: "Coned", amount: 100.50, due_date: "Nov20_2020", paid: false, user_id: 1)
