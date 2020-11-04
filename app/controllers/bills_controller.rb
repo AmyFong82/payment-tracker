@@ -9,10 +9,22 @@ class BillsController < ApplicationController
 		end
 	end
 
+	get '/bills/new' do
+		if session[:user_id]
+	        @user = User.find(session[:user_id])
+			erb :"/bills/new"
+		else
+			redirect "login"
+		end
+
+	end
+
 	get '/bills/:id/edit' do
 		if session[:user_id]
-		@bill = Bill.find(params[:id])
-		erb :"/bills/edit"
+			@bill = Bill.find(params[:id])
+			erb :"/bills/edit"
+		else
+			redirect "login"
 		end
 	end
 

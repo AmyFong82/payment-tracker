@@ -1,9 +1,10 @@
 <h1>Bills</h1>
 <% if logged_in? %>
+<a href="/bills/new">Add bill</a>
 	<table>
 		<tr>
 			<th>Company</th>
-			<th>Amount Due</th>
+			<th>Amount</th>
 			<th>Due Date</th>
 			<th>Paid?</th>
 		</tr>
@@ -18,5 +19,5 @@
 		</tr>
 	</table>
 <% else %>
-<p>Please <a href="/login">Login</a></p>
+<p>Please <a href="/login">Login</a> to view your bills.</p>
 <% end %>

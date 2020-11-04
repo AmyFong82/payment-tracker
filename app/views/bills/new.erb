@@ -1,0 +1,13 @@
+<h1>Create a new bill</h1>
+<form action="/bills" method="post">
+	<label for="company_name">Company Name:</label>
+	<input type="text" id="company_name" name="company_name"><br>
+	<label for="amount">Amount:</label>
+	<input type="text" id="amount" name="amount"><br>
+	<label for="due_date">Due Date:</label>
+	<input type="date" id="due_date" name="due_date"><br>
+	<p>Paid:</p>
+	<input type="radio" id="not_paid" name="paid" value="no"><label for="not_paid">No</label><br>
+	<input type="radio" id="paid" name="paid" value="yes"><label for="paid">Yes</label><br>
+	<input type="submit" value="create">
+</form>
