@@ -1,19 +1,22 @@
 <h1>Bills</h1>
-<table>
-	<tr>
-		<th>Company</th>
-		<th>Amount Due</th>
-		<th>Due Date</th>
-		<th>Paid?</th>
-	</tr>
-	<tr>
-		<% @bills.each do |b| %>
-		<td><%= b.company_name %></td>
-		<td><%= b.amount %></td>
-		<td><%= b.due_date %></td>
-		<td><%= b.paid %></td>
-		<td><a href="/bills/<%= b.id %>/edit"></a> / <a href="/bills/<%= b.id %>/delete"></a></td>
-		<% end %>
-	</tr>
-
-</table>
+<% if logged_in? %>
+	<table>
+		<tr>
+			<th>Company</th>
+			<th>Amount Due</th>
+			<th>Due Date</th>
+			<th>Paid?</th>
+		</tr>
+		<tr>
+			<% @bills.each do |b| %>
+			<td><%= b.company_name %></td>
+			<td><%= b.amount %></td>
+			<td><%= b.due_date %></td>
+			<td><%= b.paid %></td>
+			<td><a href="/bills/<%= b.id %>/edit">Edit</a> / <a href="/bills/<%= b.id %>/delete">Delete</a></td>
+			<% end %>
+		</tr>
+	</table>
+<% else %>
+<p>Please <a href="/login">Login</a></p>
+<% end %>

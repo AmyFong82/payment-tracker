@@ -10,9 +10,10 @@ class BillsController < ApplicationController
 	end
 
 	get '/bills/:id/edit' do
-		if se
+		if session[:user_id]
 		@bill = Bill.find(params[:id])
 		erb :"/bills/edit"
+		end
 	end
 
 end
