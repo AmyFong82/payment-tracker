@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_30_050840) do
+ActiveRecord::Schema.define(version: 2020_11_04_050258) do
 
   create_table "bills", force: :cascade do |t|
     t.string "company_name"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_10_30_050840) do
     t.float "amount"
     t.boolean "paid"
     t.integer "user_id"
+    t.string "recurrence"
   end
 
   create_table "users", force: :cascade do |t|
