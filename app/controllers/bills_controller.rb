@@ -5,7 +5,21 @@ class BillsController < ApplicationController
 	        @bills = @user.bills
 			erb :"/bills/bills"
 		else
-			redirect "login"
+			redirect "/login"
+		end
+	end
+
+	post '/bills' do
+		if session[:user_id]
+	        @user = User.find(session[:user_id])
+	        if !params.values.any? ("")
+	        	@user.bills << Bill.create(company_name: params[:company_name], amount: params[:amount], due_date: params[:due_date], recurrence: params[:recurrence], paid: params[:paid])
+	        	redirect '/bills'
+	        else
+	        	"please enter all fields"
+	        end
+	    else
+			redirect "/login"
 		end
 	end
 
@@ -14,9 +28,8 @@ class BillsController < ApplicationController
 	        @user = User.find(session[:user_id])
 			erb :"/bills/new"
 		else
-			redirect "login"
+			redirect "/login"
 		end
-
 	end
 
 	get '/bills/:id/edit' do
@@ -24,7 +37,7 @@ class BillsController < ApplicationController
 			@bill = Bill.find(params[:id])
 			erb :"/bills/edit"
 		else
-			redirect "login"
+			redirect "/login"
 		end
 	end
 
