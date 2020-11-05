@@ -3,7 +3,11 @@ class BillsController < ApplicationController
 		if session[:user_id]
 	        @user = User.find(session[:user_id])
 	        @bills = @user.bills
-			erb :"/bills/bills"
+	        if @bills.empty?
+	        	redirect '/bills/new'
+	        else
+				erb :"/bills/bills"
+			end
 		else
 			redirect "/login"
 		end
