@@ -8,15 +8,15 @@
 			<th>Due Date</th>
 			<th>Paid?</th>
 		</tr>
+		<% @bills.each do |b| %>
 		<tr>
-			<% @bills.each do |b| %>
 			<td><%= b.company_name %></td>
 			<td><%= b.amount %></td>
 			<td><%= b.due_date %></td>
 			<td><%= b.paid %></td>
 			<td><a href="/bills/<%= b.id %>/edit">Edit</a> / <a href="/bills/<%= b.id %>/delete">Delete</a></td>
-			<% end %>
 		</tr>
+		<% end %>
 	</table>
 
 	<a href="/bills/new">Add Bill</a>

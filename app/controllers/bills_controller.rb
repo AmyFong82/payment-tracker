@@ -39,7 +39,7 @@ class BillsController < ApplicationController
 	get '/bills/:id/edit' do
 		if session[:user_id]
 			@bill = Bill.find(params[:id])
-			erb :"/bills/edit"
+			erb :"/bills/edit_bill"
 		else
 			redirect "/login"
 		end

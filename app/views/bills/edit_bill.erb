@@ -1,0 +1,23 @@
+<% if logged_in? %>
+	<h2>Edit bill</h2>
+	<form action="/bills" method="post">
+		<label for="company_name">Company Name:</label>
+		<input type="text" id="company_name" name="company_name" value="<%= @bill.company_name %>"><br><br>
+		<label for="amount">Amount: $</label>
+		<input type="text" id="amount" name="amount" value="<%= @bill.amount %>"><br><br>
+		<label for="due_date">Due Date:</label>
+		<input type="date" id="due_date" name="due_date" value="<%= @bill.due_date %>"><br><br>
+		<h4>Recurrence:</h4>
+		<input type="radio" name="recurrence" value="monthly" <%= 'checked' if @bill.recurrence == "monthly" %>>Monthly<br>
+		<input type="radio" name="recurrence" value="quarterly" <%= 'checked' if @bill.recurrence == "quarterly" %>>Quarterly<br>
+		<input type="radio" name="recurrence" value="annually" <%= 'checked' if @bill.recurrence == "annually" %>>Annually<br>
+		<input type="radio" name="recurrence" value="no" <%= 'checked' if @bill.recurrence == "no" %>>Not Recurrent<br><br>
+		<h4>Paid:</h4>
+		<input type="radio" name="paid" value="yes">Yes<br>
+		<input type="radio" name="paid" value="no" checked>No<br><br>
+		<input type="submit" value="Add Bill">
+	</form>
+
+<% else %>
+	<p>Please <a href="/login">Login</a> to view your bills.</p>
+<% end %>
