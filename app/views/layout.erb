@@ -9,6 +9,12 @@
     	<h1>Payment Tracker</h1>
       	<%= yield %>
 
+      	<% if logged_in? %>
+      	<div id="logout">
+      	<a href="/logout">Logout</a>
+      	</div>
+      	<% end %>
+
     </div>
 
   </body>
