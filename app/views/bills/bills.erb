@@ -7,22 +7,40 @@
 			<th>Company</th>
 			<th>Amount</th>
 			<th>Due Date</th>
-			<th>Paid?</th>
-			<th>Edit/Delete</th>
+			<th class="text-center">Paid?</th>
+			<th class="text-center">Edit/Delete</th>
 		</tr>
 	  </thead>
+
+	  <% if @bills.empty? %>
+	  <tr>
+	  	<td>You are not tracking any bills yet.</td>
+	  	<td></td>
+	  	<td></td>
+	  	<td></td>
+	  	<td></td>
+	  </tr>
+	  <% else %>
 		<% @bills.each do |b| %>
 		<tr>
 			<td><%= b.company_name %></td>
 			<td>$ <%= b.amount %></td>
 			<td><%= b.due_date %></td>
-			<td><input type="checkbox" name="paid" value = "1" <%= 'checked' if b.paid == true %>></td>
-			<td><a href="/bills/<%= b.id %>/edit"><i class="fas fa-pencil-alt"></i></a> / <a href="/bills/<%= b.id %>/delete"><i class="fas fa-trash-alt"></i></a></td>
+			<td class="text-center"><input type="checkbox" name="paid" value = "1" <%= 'checked' if b.paid == true %>></td>
+			<td class="text-center">
+				<a href="/bills/<%= b.id %>/edit"><i class="fas fa-pencil-alt"></i></a> / 
+				<form action="/bills/<%= b.id %>" method="post">
+					<input type="hidden" id="hidden" name="_method" value="delete">
+						<button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-trash-alt"></i></button>
+				</form>
+
+			</td>
 		</tr>
 		<% end %>
+	  <% end %>
 	</table>
 
-	<a href="/bills/new">Add Bill</a>
+	<a class="btn btn-sm btn-primary" href="/bills/new">Add Bill</a>
 
 <% else %>
 	<p>Please <a href="/login">Login</a> to view your bills.</p>

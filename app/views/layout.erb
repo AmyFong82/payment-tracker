@@ -9,11 +9,11 @@
   <body>
 
     <div class="container">
-    	<h1>Payment Tracker</h1>
+    	<h1 class="display-3">Payment Tracker</h1>
       	<%= yield %>
 
       	<% if logged_in? %>
-      	<div id="logout">
+      	<div style="position: absolute; right: 80px; top: 10px;" id="logout">
       	<a class="btn btn-primary" href="/logout" role="button">Logout</a>
       	</div>
       	<% end %>

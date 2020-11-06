@@ -3,11 +3,7 @@ class BillsController < ApplicationController
 		if session[:user_id]
 	        @user = User.find(session[:user_id])
 	        @bills = @user.bills
-	        if @bills.empty?
-	        	redirect '/bills/new'
-	        else
-				erb :"/bills/bills"
-			end
+			erb :"/bills/bills"
 		else
 			redirect "/login"
 		end
@@ -54,6 +50,18 @@ class BillsController < ApplicationController
 			"fill in all."
 		end
 	end
+
+	delete '/bills/:id' do
+		if session[:user_id]
+			@bill = Bill.find(params[:id])
+			@bill.delete
+			redirect to '/bills'
+		else
+			redirect '/login'
+		end
+
+	end
+
 
 end
 
