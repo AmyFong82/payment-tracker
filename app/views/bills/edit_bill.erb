@@ -13,8 +13,8 @@
 		<input type="radio" name="recurrence" value="annually" <%= 'checked' if @bill.recurrence == "annually" %>>Annually<br>
 		<input type="radio" name="recurrence" value="no" <%= 'checked' if @bill.recurrence == "no" %>>Not Recurrent<br><br>
 		<h4>Paid:</h4>
-		<input type="radio" name="paid" value="1" <%= 'checked' if @bill.paid == "yes" %>>Yes<br>
-		<input type="radio" name="paid" value="0" <%= 'checked' if @bill.paid == "no" %>>No<br><br>
+		<input type="radio" name="paid" value="1" <%= 'checked' if @bill.paid == true %>>Yes<br>
+		<input type="radio" name="paid" value="0" <%= 'checked' if @bill.paid == false %>>No<br><br>
 		<input type="submit" value="Add Bill">
 	</form>
 
