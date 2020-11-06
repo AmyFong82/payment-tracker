@@ -1,6 +1,6 @@
 <% if logged_in? %>
 
-	<h2>Your bills</h2>
+	<h2>Your Monthly bills</h2>
 	<table>
 		<tr>
 			<th>Company</th>
@@ -13,7 +13,7 @@
 			<td><%= b.company_name %></td>
 			<td><%= b.amount %></td>
 			<td><%= b.due_date %></td>
-			<td><%= b.paid %></td>
+			<td><input type="checkbox" name="paid" value = "1" <%= 'checked' if b.paid == true %>></td>
 			<td><a href="/bills/<%= b.id %>/edit">Edit</a> / <a href="/bills/<%= b.id %>/delete">Delete</a></td>
 		</tr>
 		<% end %>
