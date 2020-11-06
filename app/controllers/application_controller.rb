@@ -11,7 +11,11 @@ class ApplicationController < Sinatra::Base
 
 
   get '/' do
-  	erb :'index'
+  	if session[:user_id]
+  		redirect "/bills"
+  	else
+  		erb :'index'
+  	end
   end
 
   helpers do
