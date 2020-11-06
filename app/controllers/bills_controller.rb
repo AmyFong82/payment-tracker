@@ -45,6 +45,16 @@ class BillsController < ApplicationController
 		end
 	end
 
+	patch '/bills/:id' do
+		if session[:user_id] and !params[:company_name].empty? and !params[:due_date].empty?
+			@bill = Bill.find(params[:id])
+			@bill.update(company_name: params[:company_name], amount: params[:amount], due_date: params[:due_date], recurrence: params[:recurrence], paid: params[:paid])
+			redirect "/bills"
+		else
+			"fill in all."
+		end
+	end
+
 end
 
 #bill = Bill.new(company_name: "Coned", amount: 100.50, due_date: "Nov20_2020", paid: false, user_id: 1)

@@ -1,6 +1,7 @@
 <% if logged_in? %>
 	<h2>Edit bill</h2>
-	<form action="/bills" method="post">
+	<form action="/bills/<%= @bill.id %>" method="post">
+		<input type="hidden" id="hidden" name="_method" value="patch">
 		<label for="company_name">Company Name:</label>
 		<input type="text" id="company_name" name="company_name" value="<%= @bill.company_name %>"><br><br>
 		<label for="amount">Amount: $</label>
@@ -15,7 +16,7 @@
 		<h4>Paid:</h4>
 		<input type="radio" name="paid" value="1" <%= 'checked' if @bill.paid == true %>>Yes<br>
 		<input type="radio" name="paid" value="0" <%= 'checked' if @bill.paid == false %>>No<br><br>
-		<input type="submit" value="Add Bill">
+		<input type="submit" value="Update Bill">
 	</form>
 
 <% else %>
