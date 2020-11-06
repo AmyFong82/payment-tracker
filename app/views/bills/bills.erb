@@ -1,13 +1,14 @@
 <% if logged_in? %>
 
-	<h2>Your Monthly bills</h2>
-	<table class="table">
+	<h2>Monthly Bills</h2>
+	<table class="table table-striped">
 	  <thead class="thead-dark">
 		<tr>
 			<th>Company</th>
 			<th>Amount</th>
 			<th>Due Date</th>
 			<th>Paid?</th>
+			<th>Edit/Delete</th>
 		</tr>
 	  </thead>
 		<% @bills.each do |b| %>
@@ -16,7 +17,7 @@
 			<td>$ <%= b.amount %></td>
 			<td><%= b.due_date %></td>
 			<td><input type="checkbox" name="paid" value = "1" <%= 'checked' if b.paid == true %>></td>
-			<td><a href="/bills/<%= b.id %>/edit">Edit</a> / <a href="/bills/<%= b.id %>/delete">Delete</a></td>
+			<td><a href="/bills/<%= b.id %>/edit"><i class="fas fa-pencil-alt"></i></a> / <a href="/bills/<%= b.id %>/delete"><i class="fas fa-trash-alt"></i></a></td>
 		</tr>
 		<% end %>
 	</table>
