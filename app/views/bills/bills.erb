@@ -28,9 +28,9 @@
 			<td><%= b.due_date %></td>
 			<td class="text-center"><input type="checkbox" name="paid" value = "1" <%= 'checked' if b.paid == true %>></td>
 			<td class="text-center">
-				<a href="/bills/<%= b.id %>/edit"><i class="fas fa-pencil-alt"></i></a> / 
 				<form action="/bills/<%= b.id %>" method="post">
 					<input type="hidden" id="hidden" name="_method" value="delete">
+					<a href="/bills/<%= b.id %>/edit"><i class="fas fa-pencil-alt"></i></a>
 						<button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-trash-alt"></i></button>
 				</form>
 
