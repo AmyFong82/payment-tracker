@@ -9,6 +9,12 @@
 	<input class="btn btn-primary btn-sm" type="submit" value="Sign Up">
 </form>
 
+<% if flash.has?(:message) %>
+  <div class="alert alert-danger" role="alert">
+  <%= flash[:message] %>
+  </div>
+<% end %>
+
 <div>
 <p>Already have an account?</p>
 <a class="btn btn-primary" href="/login" role="button">Login</a>

@@ -1,3 +1,5 @@
+require 'rack-flash'
+
 class UsersController < ApplicationController
 
 	get '/signup' do
@@ -12,10 +14,12 @@ class UsersController < ApplicationController
 				session[:user_id] = @user.id 
 				redirect "/bills"
 			else
-				"Please use another username"
+				flash[:message] = "Username taken. Please try another one."
+  				redirect to ("/signup")
 			end
 		else
-			"Please fill in all the fields!"
+			flash[:message] = "Please fill in all the fields."
+  			redirect to ("/signup")
 		end
 	end
 
