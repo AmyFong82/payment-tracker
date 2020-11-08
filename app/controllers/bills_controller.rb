@@ -6,9 +6,16 @@ class BillsController < ApplicationController
 
 	        if !@bills.empty?
 	        	@monthly_bills = []
+	        	@quarterly_bills = []
+	        	@yearly_bills = []
 	        	@bills.each do |b|
-		        	if b.recurrence == "monthly"
+		        	case b.recurrence 
+		        	when "monthly"
 		        		@monthly_bills << b
+		        	when "quarterly"
+		        		@quarterly_bills << b
+		        	when "yearly"
+		        		@yearly_bills << b	
 		        	end
 	        	end
 	        end
