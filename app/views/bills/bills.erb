@@ -1,6 +1,10 @@
 <% if logged_in? %>
 
-	<h2>Monthly Bills</h2>
+	<% if @bills.empty? %>
+		<h2>Bills</h2>
+	<% elsif !@monthly_bills.empty? %>
+		<h2>Monthly Bills</h2>
+	<% end %>
 	<table class="table table-striped">
 	  <thead class="thead-dark">
 		<tr>
@@ -12,17 +16,15 @@
 		</tr>
 	  </thead>
 
-	  <% if @bills.empty? %>
 	  <tr>
-	  	<td>You are not tracking any bills yet.</td>
-	  	<td></td>
-	  	<td></td>
-	  	<td></td>
-	  	<td></td>
-	  </tr>
-	  <% else %>
-		<% @bills.each do |b| %>
-		<tr>
+		<% if @bills.empty? %>
+		  	<td>Add a bill to being payment tracking.</td>
+		  	<td></td>
+		  	<td></td>
+		  	<td></td>
+		  	<td></td>
+	  	<% elsif !@monthly_bills.empty? %>
+	  		<% @monthly_bills.each do |b|  %>
 			<td><%= b.company_name %></td>
 			<td>$ <%= b.amount %></td>
 			<td><%= b.due_date %></td>
@@ -30,18 +32,16 @@
 			<td class="text-center">
 				<form action="/bills/<%= b.id %>" method="post">
 					<input type="hidden" id="hidden" name="_method" value="delete">
-					<a href="/bills/<%= b.id %>/edit"><i class="fas fa-pencil-alt"></i></a>
+					<a href="/bills/<%= b.id %>/edit"><i class="fas fa-pencil-alt"></i></a>&nbsp;
 						<button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-trash-alt"></i></button>
 				</form>
-
 			</td>
-		</tr>
+	  </tr>
+	  		<% end %>
 		<% end %>
-	  <% end %>
 	</table>
 
 	<a class="btn btn-sm btn-primary" href="/bills/new">Add Bill</a>
-
 <% else %>
 	<p>Please <a href="/login">Login</a> to view your bills.</p>
 <% end %>

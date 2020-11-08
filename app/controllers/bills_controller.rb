@@ -3,6 +3,16 @@ class BillsController < ApplicationController
 		if session[:user_id]
 	        @user = User.find(session[:user_id])
 	        @bills = @user.bills
+
+	        if !@bills.empty?
+	        	@monthly_bills = []
+	        	@bills.each do |b|
+		        	if b.recurrence == "monthly"
+		        		@monthly_bills << b
+		        	end
+	        	end
+	        end
+
 			erb :"/bills/bills"
 		else
 			redirect "/login"
