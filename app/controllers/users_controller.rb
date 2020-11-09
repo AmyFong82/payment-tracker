@@ -34,8 +34,8 @@ class UsersController < ApplicationController
 			session[:user_id] = @user.id 
 			redirect '/bills'
 		else
+			flash[:message] = "You do not have an account yet. Please sign up to use."
 			redirect '/login'
-			"flash message"
 		end
 	end
 
