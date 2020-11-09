@@ -31,9 +31,8 @@
 		<td class="text-center">
 			<form action="/bills/<%= b.id %>" method="post">
 				<input type="hidden" id="hidden" name="_method" value="patch">
-					<input type="hidden" name="paid" value="0" />
-					<input type="checkbox" name="paid" value = "1" <%= 'checked' if b.paid == true %>>
-					<button id="hidden_paid" type="submit" class="btn btn-warning btn-sm">Save?</button>
+					<input class="checkbox" id="toggle" type="checkbox" name="paid" value = "1" <%= 'checked' if b.paid == true %> <%= 'disabled' if b.paid == true %>>
+					<button type="submit" class="btn btn-warning btn-sm">Save</button>
 			</form>
 		</td>
 		<td class="text-center">
@@ -70,11 +69,10 @@
 			<td class="text-center">
 				<form action="/bills/<%= b.id %>" method="post">
 					<input type="hidden" id="hidden" name="_method" value="patch">
-						<input type="hidden" name="paid" value="0" />
-						<input type="checkbox" name="paid" value = "1" <%= 'checked' if b.paid == true %>>
-						<button id="hidden_paid" type="submit" class="btn btn-warning btn-sm">Save?</button>
+						<input class="checkbox" id="toggle" type="checkbox" name="paid" value = "1" <%= 'checked' if b.paid == true %> <%= 'disabled' if b.paid == true %>>
+						<button type="submit" class="btn btn-warning btn-sm">Save</button>
 				</form>
-			</td>			
+			</td>		
 			<td class="text-center">
 					<form action="/bills/<%= b.id %>" method="post">
 						<input type="hidden" id="hidden" name="_method" value="delete">
@@ -107,11 +105,10 @@
 			<td class="text-center">
 				<form action="/bills/<%= b.id %>" method="post">
 					<input type="hidden" id="hidden" name="_method" value="patch">
-						<input type="hidden" name="paid" value="0" />
-						<input type="checkbox" name="paid" value = "1" <%= 'checked' if b.paid == true %>>
-						<button id="hidden_paid" type="submit" class="btn btn-warning btn-sm">Save?</button>
+						<input class="checkbox" id="toggle" type="checkbox" name="paid" value = "1" <%= 'checked' if b.paid == true %> <%= 'disabled' if b.paid == true %>>
+						<button type="submit" class="btn btn-warning btn-sm">Save</button>
 				</form>
-			</td>	
+			</td>
 			<td class="text-center">
 				<form action="/bills/<%= b.id %>" method="post">
 					<input type="hidden" id="hidden" name="_method" value="delete">
