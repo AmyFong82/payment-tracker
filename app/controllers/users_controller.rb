@@ -33,6 +33,9 @@ class UsersController < ApplicationController
 		if @user && @user.authenticate(params[:password])
 			session[:user_id] = @user.id 
 			redirect '/bills'
+		elsif @user && !@user.authenticate(params[:password])
+			flash[:message] = "Username or password incorrect."
+			redirect '/login'
 		else
 			flash[:message] = "You do not have an account yet. Please sign up to use."
 			redirect '/login'

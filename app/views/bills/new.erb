@@ -1,5 +1,6 @@
 <% if logged_in? %>
-	<h2>Add a new bill</h2>
+	<div class="folder_bg">
+	<h2 class="create_h2">Add a new bill</h2>
 
 	<form action="/bills" method="post">
 		<label for="company_name">Company Name:</label>
@@ -22,6 +23,8 @@
 		<input type="radio" name="paid" value="0" checked>No<br><br>
 		<input type="submit" value="Add Bill">
 	</form>
+
+	</div>
 
 <% else %>
 	<p>Please <a href="/login">Login</a> to view your bills.</p>

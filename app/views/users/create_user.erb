@@ -1,21 +1,28 @@
-<h1>Create an Account</h1>
-<form action="/signup" method="post">
-	<label for="username">Username: </label>
-	<input type="text" id="username" name="username"><br><br>
-	<label for="email">Email:</label>
-	<input type="email" id="email" name="email"><br><br>
-	<label for="password">Password:</label>
-	<input type="password" id="password" name="password"><br><br>
-	<input class="btn btn-primary btn-sm" type="submit" value="Sign Up">
-</form>
+<div class="folder_bg">
+	<div class="width_50 float_left padding_top_50">
+	<h2 class="create_h2">Create an Account</h2>
+	<form action="/signup" method="post">
+		<label for="username">Username: </label> <br>
+		<input type="text" id="username" name="username" required><br><br>
 
-<% if flash.has?(:message) %>
-  <div class="alert alert-danger" role="alert">
-  <%= flash[:message] %>
-  </div>
-<% end %>
+		<label for="email">Email:</label> <br>
+		<input type="email" id="email" name="email" required><br><br>
 
-<div>
-<p>Already have an account?</p>
-<a class="btn btn-primary" href="/login" role="button">Login</a>
+		<label for="password">Password:</label> <br>
+		<input type="password" id="password" name="password" required><br><br>
+		<input class="btn btn-primary btn-sm" type="submit" value="Sign Up">
+	</form>
+
+	<% if flash.has?(:message) %>
+	  <div class="alert alert-danger clear" role="alert">
+	  <%= flash[:message] %>
+	  </div>
+	<% end %>
+	</div>
+
+	<div class="float_right width_50 padding_top_200">
+	<p>
+		Already have an account? <a class="btn btn-primary" href="/login" role="button">Login</a>
+	</p>
+	</div>
 </div>
