@@ -3,6 +3,7 @@ class BillsController < ApplicationController
 		if session[:user_id]
 	        @user = User.find(session[:user_id])
 	        @bills = @user.bills
+	        @non_recurring = []
         	@monthly_bills = []
         	@quarterly_bills = []
         	@yearly_bills = []
@@ -16,6 +17,8 @@ class BillsController < ApplicationController
 		        		@quarterly_bills << b
 		        	when "yearly"
 		        		@yearly_bills << b	
+		        	when "no"
+		        		@non_recurring << b
 		        	end
 	        	end
 	        end

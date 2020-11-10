@@ -28,14 +28,31 @@ h2 {
     text-align: center;
 }
 
-#bill_title_1, #monthly-bill-title {
+.bill_title_1 {
+ background-color: #6c5ee0;
+}
+
+.table.bill_table .thead-dark th {
+    background-color: #6c5ee0;
+    border-color: #6c5ee0;
+}
+
+#monthly-bill-title {
     background-color: #17a2b8;
 }
 
 .table#monthly_bill_table .thead-dark th {
     background-color: #17a2b8;
     border-color: #17a2b8;
+}
 
+#monthly-bill-title {
+    background-color: #17a2b8;
+}
+
+.table#monthly_bill_table .thead-dark th {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
 }
 
 #quart-bill-title {
