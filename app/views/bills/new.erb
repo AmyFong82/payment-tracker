@@ -1,12 +1,6 @@
 <% if logged_in? %>
 	<h2>Add a new bill</h2>
 
-	<% if flash.has?(:message) %>
-	  <div class="alert alert-danger" role="alert">
-	  <%= flash[:message] %>
-	  </div>
-	<% end %>
-
 	<form action="/bills" method="post">
 		<label for="company_name">Company Name:</label>
 		<input type="text" id="company_name" name="company_name" required><br><br>
@@ -21,16 +15,13 @@
 		<input type="radio" name="recurrence" value="monthly" checked>Monthly<br>
 		<input type="radio" name="recurrence" value="quarterly">Quarterly<br>
 		<input type="radio" name="recurrence" value="yearly">Yearly<br>
-		<input type="radio" name="recurrence" value="no">Not Recurrent<br><br>
+		<input type="radio" name="recurrence" value="no">Not Recurring<br><br>
 
 		<h4>Paid:</h4>
 		<input type="radio" name="paid" value="1">Yes<br>
 		<input type="radio" name="paid" value="0" checked>No<br><br>
 		<input type="submit" value="Add Bill">
 	</form>
-
-
-
 
 <% else %>
 	<p>Please <a href="/login">Login</a> to view your bills.</p>
