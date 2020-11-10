@@ -20,11 +20,11 @@ h2 {
     text-align: center;
 }
 
-#bill_title_1, #monthly_bill_title {
+#bill_title_1, #monthly-bill-title {
     background-color: #17a2b8;
 }
 
-.table#montly_bill_table .thead-dark th {
+.table#monthly_bill_table .thead-dark th {
     background-color: #17a2b8;
     border-color: #17a2b8;
 

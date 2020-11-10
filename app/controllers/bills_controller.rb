@@ -3,11 +3,11 @@ class BillsController < ApplicationController
 		if session[:user_id]
 	        @user = User.find(session[:user_id])
 	        @bills = @user.bills
+        	@monthly_bills = []
+        	@quarterly_bills = []
+        	@yearly_bills = []
 
 	        if !@bills.empty?
-	        	@monthly_bills = []
-	        	@quarterly_bills = []
-	        	@yearly_bills = []
 	        	@bills.each do |b|
 		        	case b.recurrence 
 		        	when "monthly"
