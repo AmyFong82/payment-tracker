@@ -27,14 +27,9 @@ class BillsController < ApplicationController
 	end
 
 	post '/bills' do
-		if session[:user_id]
-	        @user = User.find(session[:user_id])
-	        if !params.values.any? ("")
-	        	@user.bills << Bill.create(company_name: params[:company_name], amount: params[:amount], due_date: params[:due_date], recurrence: params[:recurrence], paid: params[:paid])
-	        	redirect '/bills'
-	        else
-	        	"please enter all fields"
-	        end
+		if session[:user_id] and @user = User.find(session[:user_id]) and !params.values.any? ("")
+        	@user.bills << Bill.create(company_name: params[:company_name], amount: params[:amount], due_date: params[:due_date], recurrence: params[:recurrence], paid: params[:paid])
+        	redirect '/bills'
 	    else
 			redirect "/login"
 		end
