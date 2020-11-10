@@ -40,8 +40,8 @@
 			<td><%= b.company_name %></td>
 			<td>$ <%= b.amount %></td>
 			<td><%= b.due_date %></td>
-			<td class="text-center">
-				<form action="/bills/<%= b.id %>" method="post">
+			<td class="text-center paid_col">
+				<form class="paid_form" action="/bills/<%= b.id %>" method="post">
 					<input type="hidden" id="hidden" name="_method" value="patch">
 						<input class="checkbox" id="toggle" type="checkbox" name="paid" value = "1" <%= 'checked' if b.paid == true %> <%= 'disabled' if b.paid == true %>>
 						<button type="submit" class="btn btn-warning btn-sm">Save</button>
@@ -77,8 +77,8 @@
 			<td><%= b.company_name %></td>
 			<td>$ <%= b.amount %></td>
 			<td><%= b.due_date %></td>
-			<td class="text-center">
-				<form action="/bills/<%= b.id %>" method="post">
+			<td class="text-center paid_col">
+				<form class="paid_form" action="/bills/<%= b.id %>" method="post">
 					<input type="hidden" id="hidden" name="_method" value="patch">
 						<input class="checkbox" id="toggle" type="checkbox" name="paid" value = "1" <%= 'checked' if b.paid == true %> <%= 'disabled' if b.paid == true %>>
 						<button type="submit" class="btn btn-warning btn-sm">Save</button>
@@ -109,12 +109,12 @@
 		</tr>
 	  </thead>
 	  	<tr>
-  		<% @quarterly_bills.each do |b|  %>
+  		<% @yearly_bills.each do |b|  %>
 			<td><%= b.company_name %></td>
 			<td>$ <%= b.amount %></td>
 			<td><%= b.due_date %></td>
-			<td class="text-center">
-				<form action="/bills/<%= b.id %>" method="post">
+			<td class="text-center paid_col">
+				<form class="paid_form" action="/bills/<%= b.id %>" method="post">
 					<input type="hidden" id="hidden" name="_method" value="patch">
 						<input class="checkbox" id="toggle" type="checkbox" name="paid" value = "1" <%= 'checked' if b.paid == true %> <%= 'disabled' if b.paid == true %>>
 						<button type="submit" class="btn btn-warning btn-sm">Save</button>

@@ -4,6 +4,14 @@
     top: 10px;
 }
 
+td.paid_col {
+    width: 150px;
+}
+
+.paid_form {
+    height: 24px;
+}
+
 h2 {
 	color: #fff;
 	width: 35%;
@@ -49,16 +57,18 @@ h2 {
 }
 
 .btn-warning {
-	position: absolute;
-	right: -100px;
+	display: none;
 }
 
 #toggle:checked ~ .btn-warning {
-	right: 360px;
+    display: block;
+    position: relative;
+    left: 60%;
+    bottom: 30px;
 }
 
 #toggle:disabled ~ .btn-warning {
-	right: -100px;
+    display: none;
 }
 
 
