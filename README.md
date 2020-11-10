@@ -4,19 +4,20 @@ Track your monthly bills with payment-tracker.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+1. Clone this repository
 
-```ruby
-gem 'payment-tracker'
-```
+2. Run bundle in your Terminal:
+	$ bundle
 
-And then execute:
+3. Run "rake db:migrate" in the Terminal:
+	$ rake db:migrate
 
-    $ bundle
+4. Run "shotgun" in the Terminal:
+	$ shotgun
 
-Or install it yourself as:
+5. Copy the shotgun default url to your browser to open up the app:
+	http://127.0.0.1:9393
 
-    $ gem install payment-tracker
 
 ## Usage
 
