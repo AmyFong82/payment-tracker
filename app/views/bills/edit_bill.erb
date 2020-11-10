@@ -3,11 +3,14 @@
 	<form action="/bills/<%= @bill.id %>" method="post">
 		<input type="hidden" id="hidden" name="_method" value="patch">
 		<label for="company_name">Company Name:</label>
-		<input type="text" id="company_name" name="company_name" value="<%= @bill.company_name %>"><br><br>
+		<input type="text" id="company_name" name="company_name" value="<%= @bill.company_name %>" required><br><br>
+
 		<label for="amount">Amount: $</label>
-		<input type="text" id="amount" name="amount" value="<%= @bill.amount %>"><br><br>
+		<input type="text" id="amount" name="amount" value="<%= @bill.amount %>" required><br><br>
+
 		<label for="due_date">Due Date:</label>
-		<input type="date" id="due_date" name="due_date" value="<%= @bill.due_date %>"><br><br>
+		<input type="date" id="due_date" name="due_date" value="<%= @bill.due_date %>" required><br><br>
+		
 		<h4>Recurrence:</h4>
 		<input type="radio" name="recurrence" value="monthly" <%= 'checked' if @bill.recurrence == "monthly" %>>Monthly<br>
 		<input type="radio" name="recurrence" value="quarterly" <%= 'checked' if @bill.recurrence == "quarterly" %>>Quarterly<br>

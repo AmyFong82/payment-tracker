@@ -57,16 +57,16 @@ class BillsController < ApplicationController
 	end
 
 	patch '/bills/:id' do
-		if session[:user_id] and !params.include? ([:company_name])
+		if session[:user_id] and !params.include? ("company_name")
 			@bill = Bill.find(params[:id])
 			@bill.update(paid: params[:paid])
 			redirect '/bills'
-		elsif session[:user_id] and !params[:company_name].empty? and !params[:due_date].empty?
+		elsif session[:user_id] and params.include? ("company_name")
 			@bill = Bill.find(params[:id])
 			@bill.update(company_name: params[:company_name], amount: params[:amount], due_date: params[:due_date], recurrence: params[:recurrence], paid: params[:paid])
 			redirect "/bills"
 		else
-			"fill in all."
+			redirect "/login"
 		end
 	end
 

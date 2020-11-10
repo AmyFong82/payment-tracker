@@ -9,8 +9,3 @@ class User < ActiveRecord::Base
 	end
 	
 end
-
-# params = {username: "becky567", password: "123"}
-# params = {username: "becky123", password: "123"}
-# user2 = User.new(username: params[:username], password: params[:password])
-# user2.validate(params)
