@@ -1,8 +1,8 @@
 <% if logged_in? %>
-	<div class="folder_bg">
-	<h2 class="create_h2">Add a new bill</h2>
+	<div class="folder_bg_long">
+	<h2 class="create_h2 padding_top_30">Add A Bill</h2>
 
-	<form action="/bills" method="post">
+	<form class="bill_form width_50 text-left" action="/bills" method="post">
 		<label for="company_name">Company Name:</label>
 		<input type="text" id="company_name" name="company_name" required><br><br>
 
@@ -13,15 +13,16 @@
 		<input type="date" id="due_date" name="due_date" required><br><br>
 
 		<h4>Recurrence:</h4>
-		<input type="radio" name="recurrence" value="monthly" checked>Monthly<br>
-		<input type="radio" name="recurrence" value="quarterly">Quarterly<br>
-		<input type="radio" name="recurrence" value="yearly">Yearly<br>
-		<input type="radio" name="recurrence" value="no">Not Recurring<br><br>
+		<input type="radio" name="recurrence" value="monthly" checked> Monthly<br>
+		<input type="radio" name="recurrence" value="quarterly"> Quarterly<br>
+		<input type="radio" name="recurrence" value="yearly"> Yearly<br>
+		<input type="radio" name="recurrence" value="no"> Not Recurring<br><br>
 
 		<h4>Paid:</h4>
-		<input type="radio" name="paid" value="1">Yes<br>
-		<input type="radio" name="paid" value="0" checked>No<br><br>
-		<input type="submit" value="Add Bill">
+		<input type="radio" name="paid" value="1"> Yes<br>
+		<input type="radio" name="paid" value="0" checked> No<br><br>
+		<input class="btn btn-sm btn-primary" type="submit" value="Add Bill">
+		<a class="float_right btn btn-sm btn-danger" href="/bills">Cancel</a>
 	</form>
 
 	</div>

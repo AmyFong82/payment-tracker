@@ -1,26 +1,29 @@
 <% if logged_in? %>
-	<h2>Edit bill</h2>
-	<form action="/bills/<%= @bill.id %>" method="post">
-		<input type="hidden" id="hidden" name="_method" value="patch">
-		<label for="company_name">Company Name:</label>
-		<input type="text" id="company_name" name="company_name" value="<%= @bill.company_name %>" required><br><br>
+	<div class="folder_bg_long">
+		<h2 class="create_h2 padding_top_30">Edit Bill</h2>
+		<form class="bill_form width_50 text-left" action="/bills/<%= @bill.id %>" method="post">
+			<input type="hidden" id="hidden" name="_method" value="patch">
+			<label for="company_name">Company Name:</label>
+			<input type="text" id="company_name" name="company_name" value="<%= @bill.company_name %>" required><br><br>
 
-		<label for="amount">Amount: $</label>
-		<input type="text" id="amount" name="amount" value="<%= @bill.amount %>" required><br><br>
+			<label for="amount">Amount: $</label>
+			<input type="text" id="amount" name="amount" value="<%= @bill.amount %>" required><br><br>
 
-		<label for="due_date">Due Date:</label>
-		<input type="date" id="due_date" name="due_date" value="<%= @bill.due_date %>" required><br><br>
-		
-		<h4>Recurrence:</h4>
-		<input type="radio" name="recurrence" value="monthly" <%= 'checked' if @bill.recurrence == "monthly" %>>Monthly<br>
-		<input type="radio" name="recurrence" value="quarterly" <%= 'checked' if @bill.recurrence == "quarterly" %>>Quarterly<br>
-		<input type="radio" name="recurrence" value="annually" <%= 'checked' if @bill.recurrence == "annually" %>>Annually<br>
-		<input type="radio" name="recurrence" value="no" <%= 'checked' if @bill.recurrence == "no" %>>Not Recurrent<br><br>
-		<h4>Paid:</h4>
-		<input type="radio" name="paid" value="1" <%= 'checked' if @bill.paid == true %>>Yes<br>
-		<input type="radio" name="paid" value="0" <%= 'checked' if @bill.paid == false %>>No<br><br>
-		<input type="submit" value="Update Bill">
-	</form>
+			<label for="due_date">Due Date:</label>
+			<input type="date" id="due_date" name="due_date" value="<%= @bill.due_date %>" required><br><br>
+			
+			<h4>Recurrence:</h4>
+			<input type="radio" name="recurrence" value="monthly" <%= 'checked' if @bill.recurrence == "monthly" %>> Monthly<br>
+			<input type="radio" name="recurrence" value="quarterly" <%= 'checked' if @bill.recurrence == "quarterly" %>> Quarterly<br>
+			<input type="radio" name="recurrence" value="yearly" <%= 'checked' if @bill.recurrence == "annually" %>> Yearly<br>
+			<input type="radio" name="recurrence" value="no" <%= 'checked' if @bill.recurrence == "no" %>> Not Recurring<br><br>
+			<h4>Paid:</h4>
+			<input type="radio" name="paid" value="1" <%= 'checked' if @bill.paid == true %>> Yes<br>
+			<input type="radio" name="paid" value="0" <%= 'checked' if @bill.paid == false %>> No<br><br>
+			<input class="btn btn-sm btn-primary" type="submit" value="Update Bill">
+			<a class="float_right btn btn-sm btn-danger" href="/bills">Cancel</a>
+		</form>
+	</div>
 
 <% else %>
 	<p>Please <a href="/login">Login</a> to view your bills.</p>

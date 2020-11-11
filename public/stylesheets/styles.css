@@ -1,3 +1,7 @@
+.padding_top_30 {
+    padding-top: 30px;
+}
+
 .padding_top_50 {
     padding-top: 50px;
 }
@@ -10,9 +14,13 @@
 .padding_top_200 {
     padding-top: 200px;
 }
-
 .width_50 {
     width: 50%;
+}
+
+.bill_form {
+    margin: auto;
+    width: 30%;
 }
 
 .float_left {
@@ -40,6 +48,12 @@
 
 .folder_bg {
     height: 500px;
+    text-align: center;
+    background-color: #fbed6e99;
+}
+
+.folder_bg_long {
+    height: 600px;
     text-align: center;
     background-color: #fbed6e99;
 }
