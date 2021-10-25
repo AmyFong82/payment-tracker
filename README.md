@@ -23,6 +23,12 @@ Track your monthly bills with payment-tracker.
 
 Record your monthly bills in this app, and help yourself keep track of all your bills. You can add, read, update and delete your bills.
 
+
+## Video Demo
+https://youtu.be/CcyFbbyKV6U
+
+![Payment Tracker](/payment_tracker_homepage.png)
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/AmyFong82/payment-tracker.git. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
@@ -30,3 +36,4 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/AmyFon
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+

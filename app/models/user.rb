@@ -7,5 +7,9 @@ class User < ActiveRecord::Base
 	def validate(params)
 		!User.all.find_by(username: params[:username]) ? true : false
 	end
+
+	def bill_categories(category)
+		self.bills.select{ |bill| bill.recurrence == category}
+	end
 	
 end

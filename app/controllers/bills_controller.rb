@@ -3,25 +3,10 @@ class BillsController < ApplicationController
 		if session[:user_id]
 	        @user = User.find(session[:user_id])
 	        @bills = @user.bills
-	        @non_recurring = []
-        	@monthly_bills = []
-        	@quarterly_bills = []
-        	@yearly_bills = []
-
-	        if !@bills.empty?
-	        	@bills.each do |b|
-		        	case b.recurrence 
-		        	when "monthly"
-		        		@monthly_bills << b
-		        	when "quarterly"
-		        		@quarterly_bills << b
-		        	when "yearly"
-		        		@yearly_bills << b	
-		        	when "no"
-		        		@non_recurring << b
-		        	end
-	        	end
-	        end
+	        @non_recurring = @user.bill_categories("no")
+        	@monthly_bills = @user.bill_categories("monthly")
+        	@quarterly_bills = @user.bill_categories("quarterly")
+        	@yearly_bills = @user.bill_categories("yearly")
 
 			erb :"/bills/bills"
 		else
@@ -39,7 +24,7 @@ class BillsController < ApplicationController
 	end
 
 	get '/bills/new' do
-		if session[:user_id]
+		if current_user
 	        @user = User.find(session[:user_id])
 			erb :"/bills/new"
 		else
@@ -48,8 +33,9 @@ class BillsController < ApplicationController
 	end
 
 	get '/bills/:id/edit' do
-		if session[:user_id]
-			@bill = Bill.find(params[:id])
+		@bill = Bill.find(params[:id])
+
+		if @bill.user_id == current_user.id
 			erb :"/bills/edit_bill"
 		else
 			redirect "/login"
